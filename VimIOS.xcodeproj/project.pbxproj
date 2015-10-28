@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46BEBEEA1BE0634800DF78C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEE91BE0634800DF78C8 /* AppDelegate.swift */; };
+		46BEBEEC1BE0634800DF78C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEEB1BE0634800DF78C8 /* ViewController.swift */; };
+		46BEBEEF1BE0634800DF78C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEED1BE0634800DF78C8 /* Main.storyboard */; };
+		46BEBEF11BE0634800DF78C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF01BE0634800DF78C8 /* Assets.xcassets */; };
+		46BEBEF41BE0634800DF78C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */; };
+		46BEBEFF1BE0634800DF78C8 /* VimIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEFE1BE0634800DF78C8 /* VimIOSTests.swift */; };
+		46BEBF0A1BE0634800DF78C8 /* VimIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBF091BE0634800DF78C8 /* VimIOSUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46BEBEFB1BE0634800DF78C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46BEBEDE1BE0634800DF78C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46BEBEE51BE0634800DF78C8;
+			remoteInfo = VimIOS;
+		};
+		46BEBF061BE0634800DF78C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46BEBEDE1BE0634800DF78C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46BEBEE51BE0634800DF78C8;
+			remoteInfo = VimIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46BEBEE61BE0634800DF78C8 /* VimIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VimIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BEBEE91BE0634800DF78C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		46BEBEEB1BE0634800DF78C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		46BEBEEE1BE0634800DF78C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		46BEBEF01BE0634800DF78C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46BEBEF31BE0634800DF78C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		46BEBEF51BE0634800DF78C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46BEBEFA1BE0634800DF78C8 /* VimIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VimIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BEBEFE1BE0634800DF78C8 /* VimIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimIOSTests.swift; sourceTree = "<group>"; };
+		46BEBF001BE0634800DF78C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46BEBF051BE0634800DF78C8 /* VimIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VimIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BEBF091BE0634800DF78C8 /* VimIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimIOSUITests.swift; sourceTree = "<group>"; };
+		46BEBF0B1BE0634800DF78C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46BEBEE31BE0634800DF78C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BEBEF71BE0634800DF78C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BEBF021BE0634800DF78C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46BEBEDD1BE0634800DF78C8 = {
+			isa = PBXGroup;
+			children = (
+				46BEBEE81BE0634800DF78C8 /* VimIOS */,
+				46BEBEFD1BE0634800DF78C8 /* VimIOSTests */,
+				46BEBF081BE0634800DF78C8 /* VimIOSUITests */,
+				46BEBEE71BE0634800DF78C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46BEBEE71BE0634800DF78C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46BEBEE61BE0634800DF78C8 /* VimIOS.app */,
+				46BEBEFA1BE0634800DF78C8 /* VimIOSTests.xctest */,
+				46BEBF051BE0634800DF78C8 /* VimIOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46BEBEE81BE0634800DF78C8 /* VimIOS */ = {
+			isa = PBXGroup;
+			children = (
+				46BEBEE91BE0634800DF78C8 /* AppDelegate.swift */,
+				46BEBEEB1BE0634800DF78C8 /* ViewController.swift */,
+				46BEBEED1BE0634800DF78C8 /* Main.storyboard */,
+				46BEBEF01BE0634800DF78C8 /* Assets.xcassets */,
+				46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */,
+				46BEBEF51BE0634800DF78C8 /* Info.plist */,
+			);
+			path = VimIOS;
+			sourceTree = "<group>";
+		};
+		46BEBEFD1BE0634800DF78C8 /* VimIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				46BEBEFE1BE0634800DF78C8 /* VimIOSTests.swift */,
+				46BEBF001BE0634800DF78C8 /* Info.plist */,
+			);
+			path = VimIOSTests;
+			sourceTree = "<group>";
+		};
+		46BEBF081BE0634800DF78C8 /* VimIOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				46BEBF091BE0634800DF78C8 /* VimIOSUITests.swift */,
+				46BEBF0B1BE0634800DF78C8 /* Info.plist */,
+			);
+			path = VimIOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46BEBEE51BE0634800DF78C8 /* VimIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46BEBF0E1BE0634800DF78C8 /* Build configuration list for PBXNativeTarget "VimIOS" */;
+			buildPhases = (
+				46BEBEE21BE0634800DF78C8 /* Sources */,
+				46BEBEE31BE0634800DF78C8 /* Frameworks */,
+				46BEBEE41BE0634800DF78C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VimIOS;
+			productName = VimIOS;
+			productReference = 46BEBEE61BE0634800DF78C8 /* VimIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		46BEBEF91BE0634800DF78C8 /* VimIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46BEBF111BE0634800DF78C8 /* Build configuration list for PBXNativeTarget "VimIOSTests" */;
+			buildPhases = (
+				46BEBEF61BE0634800DF78C8 /* Sources */,
+				46BEBEF71BE0634800DF78C8 /* Frameworks */,
+				46BEBEF81BE0634800DF78C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46BEBEFC1BE0634800DF78C8 /* PBXTargetDependency */,
+			);
+			name = VimIOSTests;
+			productName = VimIOSTests;
+			productReference = 46BEBEFA1BE0634800DF78C8 /* VimIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		46BEBF041BE0634800DF78C8 /* VimIOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46BEBF141BE0634800DF78C8 /* Build configuration list for PBXNativeTarget "VimIOSUITests" */;
+			buildPhases = (
+				46BEBF011BE0634800DF78C8 /* Sources */,
+				46BEBF021BE0634800DF78C8 /* Frameworks */,
+				46BEBF031BE0634800DF78C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46BEBF071BE0634800DF78C8 /* PBXTargetDependency */,
+			);
+			name = VimIOSUITests;
+			productName = VimIOSUITests;
+			productReference = 46BEBF051BE0634800DF78C8 /* VimIOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46BEBEDE1BE0634800DF78C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Lars Kindler";
+				TargetAttributes = {
+					46BEBEE51BE0634800DF78C8 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = WB97F4TN5Z;
+					};
+					46BEBEF91BE0634800DF78C8 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = WB97F4TN5Z;
+						TestTargetID = 46BEBEE51BE0634800DF78C8;
+					};
+					46BEBF041BE0634800DF78C8 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = WB97F4TN5Z;
+						TestTargetID = 46BEBEE51BE0634800DF78C8;
+					};
+				};
+			};
+			buildConfigurationList = 46BEBEE11BE0634800DF78C8 /* Build configuration list for PBXProject "VimIOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46BEBEDD1BE0634800DF78C8;
+			productRefGroup = 46BEBEE71BE0634800DF78C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46BEBEE51BE0634800DF78C8 /* VimIOS */,
+				46BEBEF91BE0634800DF78C8 /* VimIOSTests */,
+				46BEBF041BE0634800DF78C8 /* VimIOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46BEBEE41BE0634800DF78C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BEBEF41BE0634800DF78C8 /* LaunchScreen.storyboard in Resources */,
+				46BEBEF11BE0634800DF78C8 /* Assets.xcassets in Resources */,
+				46BEBEEF1BE0634800DF78C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BEBEF81BE0634800DF78C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BEBF031BE0634800DF78C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46BEBEE21BE0634800DF78C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BEBEEC1BE0634800DF78C8 /* ViewController.swift in Sources */,
+				46BEBEEA1BE0634800DF78C8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BEBEF61BE0634800DF78C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BEBEFF1BE0634800DF78C8 /* VimIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BEBF011BE0634800DF78C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BEBF0A1BE0634800DF78C8 /* VimIOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46BEBEFC1BE0634800DF78C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46BEBEE51BE0634800DF78C8 /* VimIOS */;
+			targetProxy = 46BEBEFB1BE0634800DF78C8 /* PBXContainerItemProxy */;
+		};
+		46BEBF071BE0634800DF78C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46BEBEE51BE0634800DF78C8 /* VimIOS */;
+			targetProxy = 46BEBF061BE0634800DF78C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		46BEBEED1BE0634800DF78C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46BEBEEE1BE0634800DF78C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46BEBEF31BE0634800DF78C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		46BEBF0C1BE0634800DF78C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46BEBF0D1BE0634800DF78C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46BEBF0F1BE0634800DF78C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VimIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		46BEBF101BE0634800DF78C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VimIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		46BEBF121BE0634800DF78C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VimIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VimIOS.app/VimIOS";
+			};
+			name = Debug;
+		};
+		46BEBF131BE0634800DF78C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VimIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VimIOS.app/VimIOS";
+			};
+			name = Release;
+		};
+		46BEBF151BE0634800DF78C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VimIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VimIOS;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		46BEBF161BE0634800DF78C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VimIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VimIOS;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46BEBEE11BE0634800DF78C8 /* Build configuration list for PBXProject "VimIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BEBF0C1BE0634800DF78C8 /* Debug */,
+				46BEBF0D1BE0634800DF78C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46BEBF0E1BE0634800DF78C8 /* Build configuration list for PBXNativeTarget "VimIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BEBF0F1BE0634800DF78C8 /* Debug */,
+				46BEBF101BE0634800DF78C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		46BEBF111BE0634800DF78C8 /* Build configuration list for PBXNativeTarget "VimIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BEBF121BE0634800DF78C8 /* Debug */,
+				46BEBF131BE0634800DF78C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		46BEBF141BE0634800DF78C8 /* Build configuration list for PBXNativeTarget "VimIOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BEBF151BE0634800DF78C8 /* Debug */,
+				46BEBF161BE0634800DF78C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46BEBEDE1BE0634800DF78C8 /* Project object */;
+}
