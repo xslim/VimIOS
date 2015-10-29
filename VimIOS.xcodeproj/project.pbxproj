@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464ADAD11BE1BC0700CD4D57 /* CString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADAD01BE1BC0700CD4D57 /* CString.swift */; };
 		46BEBEEC1BE0634800DF78C8 /* VimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEEB1BE0634800DF78C8 /* VimViewController.swift */; };
 		46BEBEFF1BE0634800DF78C8 /* VimIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEFE1BE0634800DF78C8 /* VimIOSTests.swift */; };
 		46BEBF0A1BE0634800DF78C8 /* VimIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBF091BE0634800DF78C8 /* VimIOSUITests.swift */; };
@@ -100,6 +101,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		464ADAD01BE1BC0700CD4D57 /* CString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CString.swift; sourceTree = "<group>"; };
 		46BEBEE61BE0634800DF78C8 /* VimIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VimIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BEBEEB1BE0634800DF78C8 /* VimViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimViewController.swift; sourceTree = "<group>"; };
 		46BEBEEE1BE0634800DF78C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -2830,6 +2832,7 @@
 				46BEE89F1BE0735600DF78C8 /* ios_prefix.h */,
 				46BEBEEB1BE0634800DF78C8 /* VimViewController.swift */,
 				46BEE8A91BE090B000DF78C8 /* VimAppDelegate.swift */,
+				464ADAD01BE1BC0700CD4D57 /* CString.swift */,
 				46BEBEED1BE0634800DF78C8 /* Main.storyboard */,
 				46BEBEF01BE0634800DF78C8 /* Assets.xcassets */,
 				46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */,
@@ -6549,6 +6552,7 @@
 				46BEE5D51BE0642600DF78C8 /* blowfish.c in Sources */,
 				46BEE8A51BE076FF00DF78C8 /* gui_ios.m in Sources */,
 				46BEE6161BE0642600DF78C8 /* if_cscope.c in Sources */,
+				464ADAD11BE1BC0700CD4D57 /* CString.swift in Sources */,
 				46BEE6641BE0642600DF78C8 /* os_unix.c in Sources */,
 				46BEE6491BE0642600DF78C8 /* menu.c in Sources */,
 				46BEE69F1BE0642600DF78C8 /* popupmnu.c in Sources */,
