@@ -12,8 +12,12 @@
 
 
 #import "vim.h"
-
+#import "gui.h"
 int VimMain(int argc, char *argv[]);
+void gui_resize_shell(int pixel_width, int pixel_height);
+void gui_update_cursor(int force, int clear_selection);
+void gui_undraw_cursor();
+
 
 
 #endif /* VimIOS_Bridging_Header_h */

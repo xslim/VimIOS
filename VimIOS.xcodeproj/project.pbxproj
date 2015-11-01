@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		464ADAD11BE1BC0700CD4D57 /* CString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADAD01BE1BC0700CD4D57 /* CString.swift */; };
+		46BC37601BE5208100F2784D /* VimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC375F1BE5208100F2784D /* VimView.swift */; };
+		46BC37641BE58AF600F2784D /* vimrc in Resources */ = {isa = PBXBuildFile; fileRef = 46BC37621BE58AA300F2784D /* vimrc */; };
+		46BC37661BE58B5F00F2784D /* runtime in Resources */ = {isa = PBXBuildFile; fileRef = 46BC37651BE58B5F00F2784D /* runtime */; };
 		46BEBEEC1BE0634800DF78C8 /* VimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEEB1BE0634800DF78C8 /* VimViewController.swift */; };
 		46BEBEFF1BE0634800DF78C8 /* VimIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBEFE1BE0634800DF78C8 /* VimIOSTests.swift */; };
 		46BEBF0A1BE0634800DF78C8 /* VimIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEBF091BE0634800DF78C8 /* VimIOSUITests.swift */; };
@@ -102,6 +105,9 @@
 
 /* Begin PBXFileReference section */
 		464ADAD01BE1BC0700CD4D57 /* CString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CString.swift; sourceTree = "<group>"; };
+		46BC375F1BE5208100F2784D /* VimView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimView.swift; sourceTree = "<group>"; };
+		46BC37621BE58AA300F2784D /* vimrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vimrc; sourceTree = "<group>"; };
+		46BC37651BE58B5F00F2784D /* runtime */ = {isa = PBXFileReference; lastKnownFileType = folder; name = runtime; path = ../vim/runtime; sourceTree = "<group>"; };
 		46BEBEE61BE0634800DF78C8 /* VimIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VimIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BEBEEB1BE0634800DF78C8 /* VimViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimViewController.swift; sourceTree = "<group>"; };
 		46BEBEEE1BE0634800DF78C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -2797,6 +2803,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46BC37611BE58A8A00F2784D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				46BC37651BE58B5F00F2784D /* runtime */,
+				46BC37621BE58AA300F2784D /* vimrc */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		46BEBEDD1BE0634800DF78C8 = {
 			isa = PBXGroup;
 			children = (
@@ -2828,9 +2843,11 @@
 		46BEBEE81BE0634800DF78C8 /* VimIOS */ = {
 			isa = PBXGroup;
 			children = (
+				46BC37611BE58A8A00F2784D /* resources */,
 				46BEE89A1BE066A000DF78C8 /* VimIOS-Bridging-Header.h */,
 				46BEE89F1BE0735600DF78C8 /* ios_prefix.h */,
 				46BEBEEB1BE0634800DF78C8 /* VimViewController.swift */,
+				46BC375F1BE5208100F2784D /* VimView.swift */,
 				46BEE8A91BE090B000DF78C8 /* VimAppDelegate.swift */,
 				464ADAD01BE1BC0700CD4D57 /* CString.swift */,
 				46BEBEED1BE0634800DF78C8 /* Main.storyboard */,
@@ -6512,8 +6529,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BC37641BE58AF600F2784D /* vimrc in Resources */,
 				46BEE8AB1BE090F400DF78C8 /* Main.storyboard in Resources */,
 				46BEE8AC1BE090F400DF78C8 /* LaunchScreen.storyboard in Resources */,
+				46BC37661BE58B5F00F2784D /* runtime in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6570,6 +6589,7 @@
 				46BEE64B1BE0642600DF78C8 /* misc1.c in Sources */,
 				46BEE7001BE0642600DF78C8 /* tag.c in Sources */,
 				46BEE6311BE0642600DF78C8 /* main.c in Sources */,
+				46BC37601BE5208100F2784D /* VimView.swift in Sources */,
 				46BEE5E61BE0642600DF78C8 /* edit.c in Sources */,
 				46BEE5DF1BE0642600DF78C8 /* crypt_zip.c in Sources */,
 				46BEE8521BE0642700DF78C8 /* undo.c in Sources */,
@@ -6759,6 +6779,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_PREFIX_HEADER = /Users/Lars/vimIOS/VimIOS/VimIOS/ios_prefix.h;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";

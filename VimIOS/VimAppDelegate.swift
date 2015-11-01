@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         var url: NSURL?
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { self.VimStarter(url)}
+        dispatch_async(dispatch_get_main_queue()) { self.VimStarter(url)}
 //        self.performSelectorOnMainThread(NSSelectorFromString("VimStarter"), withObject: url, waitUntilDone: false)
        // VimStarter(url)
         return true
@@ -29,11 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func VimStarter(url: NSURL?) {
         if let vimPath = NSBundle.mainBundle().resourcePath {
-            let runtimePath = vimPath + "runtime"
+            let runtimePath = vimPath + "/runtime"
             vim_setenv("VIM".char, vimPath.char)
             vim_setenv("VIMRUNTIME".char, runtimePath.char)
             
             let workingDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            print(workingDir)
             
             vim_setenv("HOME".char, workingDir.char)
             

@@ -19,13 +19,12 @@
 #define HAVE_OPENDIR 1
 #define MACOS_X_UNIX 1
 #define ALWAYS_USE_GUI 1
-#define FEAT_GUI
+#define FEAT_GUI 1
 #define FEAT_GUI_SCROLL_WHEEL_FORCE 1
 #define FEAT_TITLE
 #define FEAT_GUI_IOS 1
 #define FEAT_BROWSE
 #define TARGET_OS_IPHONE 1
-
 
 
 #endif /* ios_prefix_h */

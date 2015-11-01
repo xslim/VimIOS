@@ -1,0 +1,11 @@
+" System vimrc file for Vim on iOS
+
+syntax on
+set nocompatible
+set number
+set guioptions-=rm
+
+set antialias
+command Share :browse save
+cmap <C-j> <Down>
+cmap <C-k> <Up>
