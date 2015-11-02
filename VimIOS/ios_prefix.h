@@ -21,7 +21,6 @@
 #define ALWAYS_USE_GUI 1
 #define FEAT_GUI 1
 #define FEAT_GUI_SCROLL_WHEEL_FORCE 1
-#define FEAT_TITLE
 #define FEAT_GUI_IOS 1
 #define FEAT_BROWSE
 #define TARGET_OS_IPHONE 1

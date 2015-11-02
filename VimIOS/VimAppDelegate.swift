@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         var url: NSURL?
         
-        dispatch_async(dispatch_get_main_queue()) { self.VimStarter(url)}
-//        self.performSelectorOnMainThread(NSSelectorFromString("VimStarter"), withObject: url, waitUntilDone: false)
+        //dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) { self.VimStarter(url)}
+//        dispatch_async(dispatch_get_main_queue()) { self.VimStarter(url)}
+        performSelectorOnMainThread("VimStarter:", withObject: url, waitUntilDone: false)
        // VimStarter(url)
         return true
         
@@ -32,11 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let runtimePath = vimPath + "/runtime"
             vim_setenv("VIM".char, vimPath.char)
             vim_setenv("VIMRUNTIME".char, runtimePath.char)
+//            print("VimPath: \(vimPath)")
+//            print("VimRuntime: \(runtimePath)")
+            
             
             let workingDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            print(workingDir)
+            //print("WorkingDir: \(workingDir)")
             
             vim_setenv("HOME".char, workingDir.char)
+            NSFileManager.defaultManager().changeCurrentDirectoryPath(workingDir)
             
             var numberOfArguments = 1
             var arguments = CStringArray(["vim"]).pointers
@@ -53,4 +58,12 @@ extension String {
     var char: UnsafeMutablePointer<char_u> {
         return UnsafeMutablePointer<char_u>((self as NSString).UTF8String)
     }
+    
+    func each(closure: (String) -> Void ) {
+        for digit in self.characters
+        {
+            closure(String(digit))
+        }
+    }
+    
 }

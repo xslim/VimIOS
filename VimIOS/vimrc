@@ -9,3 +9,10 @@ set antialias
 command Share :browse save
 cmap <C-j> <Down>
 cmap <C-k> <Up>
+
+set guioptions=
+set backspace=start,eol,indent
+set laststatus=2
+
+inoremap \ <ESC>
+cnoremap \ <ESC>

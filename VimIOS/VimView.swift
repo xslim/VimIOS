@@ -111,7 +111,7 @@ class VimView: UIView {
     }
     
     func fillRectWithColor(rect: CGRect, color: CGColorRef?) {
-            print("In fillRectWithColor \(rect), \(color)")
+            //print("In fillRectWithColor \(rect), \(color)")
         if let layer = shellLayer, color = color {
             let context = CGLayerGetContext(layer)
             CGContextSetFillColorWithColor(context, color)
