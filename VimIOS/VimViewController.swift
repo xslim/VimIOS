@@ -34,21 +34,29 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     var keyCommandArray: [UIKeyCommand]?
     
     override var keyCommands: [UIKeyCommand]? {
-        print("Show me the KeyCommands! \(keyCommandArray?.count)");return keyCommandArray }
+        return keyCommandArray
+    }
    // override var keyCommands:[UIKeyCommand]? { print("Show me the commands!"); return [UIKeyCommand(input:"[", modifierFlags:.Control, action:"keyPressed:")] }
     
     
-    func test(sender: UIKeyCommand) {
-        print("Huhc!?")
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name:UIKeyboardDidShowNotification, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object:nil)
     }
-        
     
     override func viewDidLoad() {
         //print("Bounds \(UIScreen.mainScreen().bounds)")
         vimView = VimView(frame: UIScreen.mainScreen().bounds)
+        vimView!.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.view.addSubview(vimView!)
+        
         registerHotkeys()
         
+        vimView?.addGestureRecognizer(UITapGestureRecognizer(target:self,action:"click:"))
+        vimView?.addGestureRecognizer(UILongPressGestureRecognizer(target:self,action:"longPress:"))
         
         inputAssistantItem.leadingBarButtonGroups=[]
         inputAssistantItem.trailingBarButtonGroups=[]
@@ -60,6 +68,17 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         #endif
     }
     
+    func click(sender: UITapGestureRecognizer) {
+        becomeFirstResponder()
+        let clickLocation = sender.locationInView(sender.view)
+        gui_send_mouse_event(0, Int32(clickLocation.x), Int32(clickLocation.y), 1,0)
+    }
+    func longPress(sender: UILongPressGestureRecognizer) {
+        if(sender.state == .Began) {
+        becomeFirstResponder()
+        toggleKeyboardBar()
+        }
+    }
     
     func flush() {
         if(!hasBeenFlushedOnce) {
@@ -120,14 +139,13 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     func insertText(text: String) {
         var escapeString = text.char
         if(text=="\n") {
-            print("Enter!")
+            //print("Enter!")
             escapeString = String(UnicodeScalar(Int(keyCAR))).char
         }
         
         becomeFirstResponder()
         let length = text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
         add_to_input_buf(escapeString, Int32(length))
-        print("Miep")
 
         flush()
         vimView?.setNeedsDisplayInRect((vimView?.dirtyRect)!)
@@ -143,6 +161,53 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     var keyboardType = UIKeyboardType.Default
     var autocorrectionType = UITextAutocorrectionType.No
     
+    
+    func toggleKeyboardBar() {
+        if(inputAssistantItem.leadingBarButtonGroups.count == 0){
+            let escButton = UIBarButtonItem(title: "ESC", style: .Plain, target: self, action: "handleBarButton:")
+            let tabButton = UIBarButtonItem(title: "TAB", style: .Plain, target: self, action: "handleBarButton:")
+            inputAssistantItem.leadingBarButtonGroups += [UIBarButtonItemGroup(barButtonItems: [escButton, tabButton], representativeItem: nil)]
+        }
+        else {
+            inputAssistantItem.leadingBarButtonGroups=[]
+            inputAssistantItem.trailingBarButtonGroups=[]
+        }
+        resignFirstResponder()
+        becomeFirstResponder()
+    }
+    
+    
+    
+    //MARK: OnScreen Keyboard Handling
+    func keyboardWillShow(notification: NSNotification) {
+        guard let vView = vimView else { return}
+        let keyboardRect = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue
+        let keyboardRectInViewCoordinates = view!.window!.convertRect(keyboardRect!, toView: vimView)
+        print(keyboardRectInViewCoordinates)
+        
+        vView.frame = CGRectMake(vView.frame.origin.x, vView.frame.origin.y, vView.frame.size.width, keyboardRectInViewCoordinates.origin.y)
+        print("Did show!")
+        
+    
+    }
+    
+    func keyboardDidShow(notification: NSNotification) {
+    
+    }
+    func keyboardWillHide(notification: NSNotification) {
+        keyboardWillShow(notification)
+        print("Will Hide!")
+    }
+    
+    func handleBarButton(sender: UIBarButtonItem) {
+        switch sender.title! {
+        case "ESC":
+            insertText(String(UnicodeScalar(Int(keyESC))))
+        case "TAB":
+            insertText(String(UnicodeScalar(Int(keyTAB))))
+        default: break
+        }
+    }
 
     
     func registerHotkeys(){
@@ -158,7 +223,7 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
             })
         }
         self.keyCommandArray! += [UIKeyCommand(input:UIKeyInputEscape, modifierFlags: [], action: "keyPressed:")]
-        print("Number of Hotkeys \(keyCommands?.count)")
+        //print("Number of Hotkeys \(keyCommands?.count)")
     }
     
     func keyPressed(sender: UIKeyCommand) {
@@ -189,7 +254,7 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
      //   //print("Wait \(wtime)")
         let passed = NSDate().timeIntervalSinceDate(lastKeyPress)*1000
         var wait = wtime
-        print("Passed \(passed)")
+        //print("Passed \(passed)")
         
         if(passed < 1000) {
             wait = 10
@@ -198,12 +263,11 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         }
         
      
-     print("Wait2 \(wait)")
+     //print("Wait2 \(wait)")
      
      let expirationDate = NSDate(timeIntervalSinceNow: Double(wait)/1000.0)
         NSRunLoop.currentRunLoop().acceptInputForMode(NSDefaultRunLoopMode, beforeDate: expirationDate)
      let delay = expirationDate.timeIntervalSinceNow
-        print("Delay \(delay)")
      return delay < 0 ? 0 : 1
     
     }

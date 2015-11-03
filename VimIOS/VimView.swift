@@ -67,7 +67,9 @@ class VimView: UIView {
     
     
     
-    func CGLayerCopyRectToRect(layer: CGLayerRef , sourceRect: CGRect , targetRect: CGRect) {
+    func CGLayerCopyRectToRect(layer: CGLayerRef? , sourceRect: CGRect , targetRect: CGRect) {
+        guard let layer = layer else {return}
+        
         let context = CGLayerGetContext(layer)
         
         var destinationRect = targetRect
@@ -87,6 +89,9 @@ class VimView: UIView {
         
         dirtyRect = CGRectUnion(dirtyRect, destinationRect)
         CGContextRestoreGState(context)
+    }
+    func CGLayerCopyRectToRect(sourceRect: CGRect , targetRect: CGRect) {
+        CGLayerCopyRectToRect(shellLayer, sourceRect: sourceRect, targetRect: targetRect)
     }
 
     func flush(){
