@@ -33,6 +33,8 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     
     var keyCommandArray: [UIKeyCommand]?
     
+    var controller = UIDocumentInteractionController()
+    
     override var keyCommands: [UIKeyCommand]? {
         return keyCommandArray
     }
@@ -58,8 +60,16 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         vimView?.addGestureRecognizer(UITapGestureRecognizer(target:self,action:"click:"))
         vimView?.addGestureRecognizer(UILongPressGestureRecognizer(target:self,action:"longPress:"))
         
+        let scrollRecognizer = UIPanGestureRecognizer(target:self, action:"scroll:")
+        scrollRecognizer.minimumNumberOfTouches=1
+        scrollRecognizer.maximumNumberOfTouches=1
+        
+        vimView?.addGestureRecognizer(scrollRecognizer)
+        
         inputAssistantItem.leadingBarButtonGroups=[]
         inputAssistantItem.trailingBarButtonGroups=[]
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -271,6 +281,44 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
      return delay < 0 ? 0 : 1
     
     }
+    
+    
+    func showShareSheetForURL(url: NSURL) {
+        controller.URL = url
+        let height = view.bounds.size.height
+        controller.presentOptionsMenuFromRect(CGRectMake(0,height-10,10,10), inView:view, animated: true)
+    }
+    
+    
+    func scroll(sender: UIPanGestureRecognizer) {
+        let clickLocation = sender.locationInView(vimView!)
+        let translation = sender.translationInView(vimView!)
+    
+        var diffY = translation.y/(vimView!.char_height)
+        
+//        print("Vorher \(diffY): \(ceil(diffY))")
+        
+        if(diffY <= -1) {
+            sender.setTranslation(CGPoint(x: 0, y: translation.y-ceil(diffY)*vimView!.char_height), inView: vimView!)
+        }
+        if(diffY >= 1) {
+            sender.setTranslation(CGPoint(x:0,y: translation.y-floor(diffY)*vimView!.char_height), inView: vimView!)
+        }
+        while(diffY <= -1){
+         //   gui_send_mouse_event(MOUSE_5, Int32(clickLocation.x), Int32(clickLocation.y), 0, 0);
+            insertText(String(UnicodeScalar(Int(getCTRLKeyCode("E")))))
+            diffY++
+        }
+        while(diffY >= 1) {
+            insertText(String(UnicodeScalar(Int(getCTRLKeyCode("Y")))))
+            //gui_send_mouse_event(MOUSE_4, Int32(clickLocation.x), Int32(clickLocation.y), 0, 0);
+            diffY--
+        }
+        
+        print("Nachher \(diffY)")
+    }
+    
+    
 
     
 }

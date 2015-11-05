@@ -21,11 +21,13 @@ int const keyBS;
 int const keyESC;
 int const keyTAB;
 
-int VimMain(int argc, char *argv[]);
+//int VimMain(int argc, char *argv[]);
+void vimHelper(int argc, NSString *file);
 void gui_resize_shell(int pixel_width, int pixel_height);
 void gui_update_cursor(int force, int clear_selection);
 void gui_undraw_cursor();
 void gui_send_mouse_event(int button,int x,int y, int repeated_click, int_u modifiers);
+int do_cmdline_cmd(char_u *cmd);
 
 void add_to_input_buf(char_u  *s, int len);
 int getCTRLKeyCode(NSString * s);

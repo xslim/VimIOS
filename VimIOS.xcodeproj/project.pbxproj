@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		464ADAD11BE1BC0700CD4D57 /* CString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADAD01BE1BC0700CD4D57 /* CString.swift */; };
+		465D8D451BEA8FC0002E557C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF01BE0634800DF78C8 /* Assets.xcassets */; };
+		465D8D471BEA93FE002E557C /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 465D8D461BEA93FE002E557C /* Icon-60@3x.png */; };
 		46BC37601BE5208100F2784D /* VimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC375F1BE5208100F2784D /* VimView.swift */; };
 		46BC37641BE58AF600F2784D /* vimrc in Resources */ = {isa = PBXBuildFile; fileRef = 46BC37621BE58AA300F2784D /* vimrc */; };
 		46BC37661BE58B5F00F2784D /* runtime in Resources */ = {isa = PBXBuildFile; fileRef = 46BC37651BE58B5F00F2784D /* runtime */; };
@@ -105,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		464ADAD01BE1BC0700CD4D57 /* CString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CString.swift; sourceTree = "<group>"; };
+		465D8D461BEA93FE002E557C /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		46BC375F1BE5208100F2784D /* VimView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimView.swift; sourceTree = "<group>"; };
 		46BC37621BE58AA300F2784D /* vimrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vimrc; sourceTree = "<group>"; };
 		46BC37651BE58B5F00F2784D /* runtime */ = {isa = PBXFileReference; lastKnownFileType = folder; name = runtime; path = ../vim/runtime; sourceTree = "<group>"; };
@@ -2815,6 +2818,7 @@
 		46BEBEDD1BE0634800DF78C8 = {
 			isa = PBXGroup;
 			children = (
+				465D8D461BEA93FE002E557C /* Icon-60@3x.png */,
 				46BEE89D1BE06EDB00DF78C8 /* CoreGraphics.framework */,
 				46BEE89B1BE06ED500DF78C8 /* CoreText.framework */,
 				46BEE8981BE065EE00DF78C8 /* UIKit.framework */,
@@ -6529,10 +6533,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465D8D471BEA93FE002E557C /* Icon-60@3x.png in Resources */,
 				46BC37641BE58AF600F2784D /* vimrc in Resources */,
 				46BEE8AB1BE090F400DF78C8 /* Main.storyboard in Resources */,
 				46BEE8AC1BE090F400DF78C8 /* LaunchScreen.storyboard in Resources */,
 				46BC37661BE58B5F00F2784D /* runtime in Resources */,
+				465D8D451BEA8FC0002E557C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

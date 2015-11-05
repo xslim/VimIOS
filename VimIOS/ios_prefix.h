@@ -25,5 +25,6 @@
 #define FEAT_BROWSE
 #define TARGET_OS_IPHONE 1
 
+int VimMain(int argc, char *argv[]);
 
 #endif /* ios_prefix_h */

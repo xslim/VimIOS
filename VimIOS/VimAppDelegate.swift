@@ -18,40 +18,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         var url: NSURL?
         
-        //dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) { self.VimStarter(url)}
-//        dispatch_async(dispatch_get_main_queue()) { self.VimStarter(url)}
+        url = launchOptions?[UIApplicationLaunchOptionsURLKey] as? NSURL
+        
+        
+        //Start Vim!
         performSelectorOnMainThread("VimStarter:", withObject: url, waitUntilDone: false)
-       // VimStarter(url)
         return true
         
     }
     
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        if(url.fileURL) {
+            let file = "Inbox/"+url.lastPathComponent!
+            do_cmdline_cmd("tabedit \(file)".char)
+            do_cmdline_cmd("redraw!".char)
+            return true
+        }
+        return false
+    }
     
     
     func VimStarter(url: NSURL?) {
-        if let vimPath = NSBundle.mainBundle().resourcePath {
-            let runtimePath = vimPath + "/runtime"
-            vim_setenv("VIM".char, vimPath.char)
-            vim_setenv("VIMRUNTIME".char, runtimePath.char)
-//            print("VimPath: \(vimPath)")
-//            print("VimRuntime: \(runtimePath)")
-            
-            
-            let workingDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            //print("WorkingDir: \(workingDir)")
-            
-            vim_setenv("HOME".char, workingDir.char)
-            NSFileManager.defaultManager().changeCurrentDirectoryPath(workingDir)
-            
-            var numberOfArguments = 1
-            var arguments = CStringArray(["vim"]).pointers
-            VimMain(Int32(numberOfArguments),&arguments)
+        guard let vimPath = NSBundle.mainBundle().resourcePath else {return}
+        let runtimePath = vimPath + "/runtime"
+        vim_setenv("VIM".char, vimPath.char)
+        vim_setenv("VIMRUNTIME".char, runtimePath.char)
+        //            print("VimPath: \(vimPath)")
+        //            print("VimRuntime: \(runtimePath)")
+        
+        
+        
+        let workingDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        //print("WorkingDir: \(workingDir)")
+        
+        vim_setenv("HOME".char, workingDir.char)
+        NSFileManager.defaultManager().changeCurrentDirectoryPath(workingDir)
+        
+        var numberOfArguments = 0
+        var file: String?
+
+        if let url = url where url.fileURL {
+            if let filename=url.lastPathComponent {
+                file = "Inbox/"+filename
+                numberOfArguments++
+            }
         }
+        
+        vimHelper(Int32(numberOfArguments),file)
     }
-
-
-
+    
 }
+
+
 
 
 extension String {
