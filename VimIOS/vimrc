@@ -7,12 +7,17 @@ set guioptions-=rm
 
 set antialias
 command Share :browse save
-cmap <C-j> <Down>
-cmap <C-k> <Up>
+command Mail :call SendAsMail()
+cmap <C-S-j> <Down>
+cmap <C-S-k> <Up>
 
 set guioptions=
 set backspace=start,eol,indent
 set laststatus=2
+set encoding=utf-8
 
-inoremap \ <ESC>
-cnoremap \ <ESC>
+function! SendAsMail()
+:w
+let t = expand("%:p")
+    call confirm(t, "Activity")
+endfunction

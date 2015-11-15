@@ -20,7 +20,7 @@ struct FontProperties{
 class VimView: UIView {
     var dirtyRect = CGRectZero
     var shellLayer : CGLayerRef?
-    let shellSize = 1024
+    let shellSize = 2048
     
     var char_ascent=CGFloat(0)
     var char_width=CGFloat(0)

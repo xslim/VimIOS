@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 enum blink_state {
     case NONE     /* not blinking at all */
     case OFF     /* blinking, cursor is not shown */
@@ -33,7 +34,8 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     
     var keyCommandArray: [UIKeyCommand]?
     
-    var controller = UIDocumentInteractionController()
+    var documentController:UIDocumentInteractionController?
+    var activityController:UIActivityViewController?
     
     override var keyCommands: [UIKeyCommand]? {
         return keyCommandArray
@@ -50,10 +52,11 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     }
     
     override func viewDidLoad() {
-        //print("Bounds \(UIScreen.mainScreen().bounds)")
+        print("Bounds \(UIScreen.mainScreen().bounds)")
         vimView = VimView(frame: UIScreen.mainScreen().bounds)
         vimView!.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.view.addSubview(vimView!)
+
         
         registerHotkeys()
         
@@ -61,13 +64,20 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         vimView?.addGestureRecognizer(UILongPressGestureRecognizer(target:self,action:"longPress:"))
         
         let scrollRecognizer = UIPanGestureRecognizer(target:self, action:"scroll:")
+        
+        vimView?.addGestureRecognizer(scrollRecognizer)
         scrollRecognizer.minimumNumberOfTouches=1
         scrollRecognizer.maximumNumberOfTouches=1
         
-        vimView?.addGestureRecognizer(scrollRecognizer)
+        let mouseRecognizer = UIPanGestureRecognizer(target:self, action:"pan:")
+        mouseRecognizer.minimumNumberOfTouches=2
+        mouseRecognizer.maximumNumberOfTouches=2
+        vimView?.addGestureRecognizer(mouseRecognizer)
         
         inputAssistantItem.leadingBarButtonGroups=[]
         inputAssistantItem.trailingBarButtonGroups=[]
+        
+    
         
         
     }
@@ -176,7 +186,8 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         if(inputAssistantItem.leadingBarButtonGroups.count == 0){
             let escButton = UIBarButtonItem(title: "ESC", style: .Plain, target: self, action: "handleBarButton:")
             let tabButton = UIBarButtonItem(title: "TAB", style: .Plain, target: self, action: "handleBarButton:")
-            inputAssistantItem.leadingBarButtonGroups += [UIBarButtonItemGroup(barButtonItems: [escButton, tabButton], representativeItem: nil)]
+            let f1Button = UIBarButtonItem(title: "F1", style: .Plain, target: self, action: "handleBarButton:")
+            inputAssistantItem.leadingBarButtonGroups += [UIBarButtonItemGroup(barButtonItems: [escButton, tabButton, f1Button], representativeItem: nil)]
         }
         else {
             inputAssistantItem.leadingBarButtonGroups=[]
@@ -215,6 +226,8 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
             insertText(String(UnicodeScalar(Int(keyESC))))
         case "TAB":
             insertText(String(UnicodeScalar(Int(keyTAB))))
+        case "F1":
+            do_cmdline_cmd("call feedkeys(\"\\<F1>\")".char)
         default: break
         }
     }
@@ -233,6 +246,10 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
             })
         }
         self.keyCommandArray! += [UIKeyCommand(input:UIKeyInputEscape, modifierFlags: [], action: "keyPressed:")]
+        self.keyCommandArray! += [UIKeyCommand(input:UIKeyInputDownArrow, modifierFlags: [], action: "keyPressed:")]
+        self.keyCommandArray! += [UIKeyCommand(input:UIKeyInputUpArrow, modifierFlags: [], action: "keyPressed:")]
+        self.keyCommandArray! += [UIKeyCommand(input:UIKeyInputLeftArrow, modifierFlags: [], action: "keyPressed:")]
+        self.keyCommandArray! += [UIKeyCommand(input:UIKeyInputRightArrow, modifierFlags: [], action: "keyPressed:")]
         //print("Number of Hotkeys \(keyCommands?.count)")
     }
     
@@ -243,12 +260,30 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         var key:String {
             switch sender.modifierFlags.rawValue {
             case 0:
-                if(sender.input == UIKeyInputEscape){
+                switch sender.input {
+                case UIKeyInputEscape:
                     return String(UnicodeScalar(Int(keyESC)))
+                case UIKeyInputDownArrow:
+                    do_cmdline_cmd("call feedkeys(\"\\<Down>\")".char)
+                    return ""
+                case UIKeyInputUpArrow:
+                    do_cmdline_cmd("call feedkeys(\"\\<Up>\")".char)
+                    return ""
+                case UIKeyInputLeftArrow:
+                    do_cmdline_cmd("call feedkeys(\"\\<Left>\")".char)
+                    return ""
+                case UIKeyInputRightArrow:
+                    do_cmdline_cmd("call feedkeys(\"\\<Right>\")".char)
+                    return ""
+                default:
+                        return sender.input.lowercaseString
                 }
-                else {
-                    return sender.input.lowercaseString
-                }
+//                if(sender.input == UIKeyInputEscape){
+//                    return String(UnicodeScalar(Int(keyESC)))
+//                }
+//                else {
+//                    return sender.input.lowercaseString
+//                }
             case UIKeyModifierFlags.Shift.rawValue:
                 return sender.input
             case UIKeyModifierFlags.Control.rawValue:
@@ -281,20 +316,91 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
      return delay < 0 ? 0 : 1
     
     }
+   
     
-    
-    func showShareSheetForURL(url: NSURL) {
-        controller.URL = url
+    func showShareSheetForURL(url: NSURL, mode: String) {
         let height = view.bounds.size.height
-        controller.presentOptionsMenuFromRect(CGRectMake(0,height-10,10,10), inView:view, animated: true)
+        if(mode == "Share") {
+            documentController = UIDocumentInteractionController(URL:url);
+            documentController?.presentOptionsMenuFromRect(CGRectMake(0,height-10,10,10), inView:view, animated: true)
+        } else if (mode == "Activity") {
+            do{
+                let string = try String(contentsOfURL: url)
+                activityController = UIActivityViewController(activityItems: [string], applicationActivities: nil)
+                activityController?.popoverPresentationController?.sourceRect=CGRectMake(0,height-10,10,10)
+                activityController?.popoverPresentationController?.sourceView=vimView!
+                presentViewController(activityController!, animated: true) {}
+                
+            }catch {}
+            
+        }
     }
     
     
-    func scroll(sender: UIPanGestureRecognizer) {
+    func pan(sender: UIPanGestureRecognizer) {
+        let translation = sender.translationInView(vimView!)
+        
+        let diffX = translation.x/(vimView!.char_width)
+        print("diffX \(diffX)")
+        
+        
+        if(diffX <= 0) {
+            let command = "call feedkeys(\"\(Int(floor(abs(diffX))))\\<C-w><\")"
+            print(command)
+            do_cmdline_cmd(command.char)
+            //insertText("\(floor(diffX))"+String(UnicodeScalar(Int(getCTRLKeyCode("W"))))+"<")
+            sender.setTranslation(CGPoint(x: translation.x-ceil(diffX)*vimView!.char_width, y:0 ), inView: vimView!)
+        }
+        if(diffX > 0) {
+            let command = "call feedkeys(\"\(Int(ceil(diffX)))\\<C-w>>\")"
+            print(command)
+            do_cmdline_cmd(command.char)
+            //insertText("\(ceil(diffX))"+String(UnicodeScalar(Int(getCTRLKeyCode("W"))))+"<")
+            sender.setTranslation(CGPoint(x: translation.x-floor(diffX)*vimView!.char_width, y:0), inView: vimView!)
+        }
+        
+        //while(diffX <= -1) {
+        //    //do_cmdline_cmd("call feedkeys(\"\\<C-w><\")".char)
+        //    insertText(String(UnicodeScalar(Int(getCTRLKeyCode("W"))))+"<")
+        //    diffX++
+        //}
+        //while(diffX >= 1) {
+        //    //do_cmdline_cmd("call feedkeys(\"\\<C-w>>\")".char)
+        //    insertText(String(UnicodeScalar(Int(getCTRLKeyCode("W"))))+">")
+        //    diffX--
+        //}
+        
+
+    }
+    /*
+    func clickPan(sender: UIPanGestureRecognizer) {
         let clickLocation = sender.locationInView(vimView!)
+        var event = mouseDRAG
+        switch sender.state {
+        case .Began:
+            event = mouseLEFT;
+            break
+        case .Ended:
+            event = mouseRELEASE
+            break
+        default:
+            event = mouseDRAG
+            break
+        }
+        gui_send_mouse_event(event, Int32(clickLocation.x), Int32(clickLocation.y), 1, 0)
+        
+    }*/
+    func scroll(sender: UIPanGestureRecognizer) {
+        if(sender.state == .Began) {
+            becomeFirstResponder()
+            let clickLocation = sender.locationInView(sender.view)
+            gui_send_mouse_event(0, Int32(clickLocation.x), Int32(clickLocation.y), 1,0)
+        }
+        
         let translation = sender.translationInView(vimView!)
     
         var diffY = translation.y/(vimView!.char_height)
+        
         
 //        print("Vorher \(diffY): \(ceil(diffY))")
         
@@ -305,7 +411,7 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
             sender.setTranslation(CGPoint(x:0,y: translation.y-floor(diffY)*vimView!.char_height), inView: vimView!)
         }
         while(diffY <= -1){
-         //   gui_send_mouse_event(MOUSE_5, Int32(clickLocation.x), Int32(clickLocation.y), 0, 0);
+            //gui_send_mouse_event(MOUSE_5, Int32(clickLocation.x), Int32(clickLocation.y), 0, 0);
             insertText(String(UnicodeScalar(Int(getCTRLKeyCode("E")))))
             diffY++
         }
@@ -314,6 +420,7 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
             //gui_send_mouse_event(MOUSE_4, Int32(clickLocation.x), Int32(clickLocation.y), 0, 0);
             diffY--
         }
+        
         
         print("Nachher \(diffY)")
     }

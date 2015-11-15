@@ -20,6 +20,14 @@ int const keyCAR;
 int const keyBS;
 int const keyESC;
 int const keyTAB;
+int const keyF1;
+int const keyUP;
+int const keyDOWN;
+int const keyLEFT;
+int const keyRIGHT;
+int const mouseLEFT;
+int const mouseDRAG;
+int const mouseRELEASE;
 
 //int VimMain(int argc, char *argv[]);
 void vimHelper(int argc, NSString *file);
