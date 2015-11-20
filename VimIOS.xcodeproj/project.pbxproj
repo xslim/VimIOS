@@ -87,6 +87,7 @@
 		46BEE8F01BE09E8300DF78C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEED1BE0634800DF78C8 /* Main.storyboard */; };
 		46BEE8F11BE09E8300DF78C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */; };
 		46BEE8F71BE09EA900DF78C8 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 46BEDB781BE0642300DF78C8 /* buffer.c */; };
+		46D16C9F1BFFCDF1005B5D08 /* VimMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D16C9E1BFFCDF1005B5D08 /* VimMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2768,6 +2769,7 @@
 		46BEE8A91BE090B000DF78C8 /* VimAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimAppDelegate.swift; sourceTree = "<group>"; };
 		46BEE8F51BE09E8300DF78C8 /* VimIOS copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VimIOS copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BEE8F61BE09E8400DF78C8 /* VimIOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "VimIOS copy-Info.plist"; path = "/Users/Lars/vimIOS/VimIOS/VimIOS copy-Info.plist"; sourceTree = "<absolute>"; };
+		46D16C9E1BFFCDF1005B5D08 /* VimMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2859,6 +2861,7 @@
 				46BEE8A91BE090B000DF78C8 /* VimAppDelegate.swift */,
 				464ADAD01BE1BC0700CD4D57 /* CString.swift */,
 				46BEBEED1BE0634800DF78C8 /* Main.storyboard */,
+				46D16C9E1BFFCDF1005B5D08 /* VimMainView.swift */,
 				46BEBEF01BE0634800DF78C8 /* Assets.xcassets */,
 				46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */,
 				46BEBEF51BE0634800DF78C8 /* Info.plist */,
@@ -6589,6 +6592,7 @@
 				46BEE8781BE0642700DF78C8 /* window.c in Sources */,
 				46BEE6181BE0642600DF78C8 /* if_mzsch.c in Sources */,
 				46BEE64C1BE0642600DF78C8 /* misc2.c in Sources */,
+				46D16C9F1BFFCDF1005B5D08 /* VimMainView.swift in Sources */,
 				46BEE5D71BE0642600DF78C8 /* charset.c in Sources */,
 				46BEE5F11BE0642600DF78C8 /* glbl_ime.cpp in Sources */,
 				46BEE5EE1BE0642600DF78C8 /* fileio.c in Sources */,

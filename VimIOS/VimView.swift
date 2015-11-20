@@ -20,7 +20,7 @@ struct FontProperties{
 class VimView: UIView {
     var dirtyRect = CGRectZero
     var shellLayer : CGLayerRef?
-    let shellSize = 2048
+    var shellSize = 1366
     
     var char_ascent=CGFloat(0)
     var char_width=CGFloat(0)
@@ -31,6 +31,14 @@ class VimView: UIView {
     var spcolor:CGColorRef?
     
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        shellSize = max(Int(UIScreen.mainScreen().bounds.width), Int(UIScreen.mainScreen().bounds.height))
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder:aDecoder)
+    }
     override func drawRect(rect: CGRect) {
         guard let layer = shellLayer else {
             let scale = UIScreen.mainScreen().scale
@@ -62,7 +70,8 @@ class VimView: UIView {
     }
     
     func resizeShell() {
-        gui_resize_shell(CInt(self.bounds.width), CInt(self.bounds.size.height))
+        print("Resizing to \(frame)")
+        gui_resize_shell(CInt(frame.width), CInt(frame.height))
     }
     
     

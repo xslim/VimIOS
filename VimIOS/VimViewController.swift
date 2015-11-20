@@ -52,8 +52,8 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     }
     
     override func viewDidLoad() {
-        print("Bounds \(UIScreen.mainScreen().bounds)")
-        vimView = VimView(frame: UIScreen.mainScreen().bounds)
+        print("DidLoad Bounds \(UIScreen.mainScreen().bounds)")
+        vimView = VimView(frame: view.frame)
         vimView!.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.view.addSubview(vimView!)
 
@@ -204,7 +204,7 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         guard let vView = vimView else { return}
         let keyboardRect = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue
         let keyboardRectInViewCoordinates = view!.window!.convertRect(keyboardRect!, toView: vimView)
-        print(keyboardRectInViewCoordinates)
+        print("KeyboardWillShow \(keyboardRectInViewCoordinates)")
         
         vView.frame = CGRectMake(vView.frame.origin.x, vView.frame.origin.y, vView.frame.size.width, keyboardRectInViewCoordinates.origin.y)
         print("Did show!")
@@ -256,7 +256,7 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     func keyPressed(sender: UIKeyCommand) {
         lastKeyPress = NSDate()
         
-        print("Input \(sender.input), Modifier \(sender.modifierFlags)")
+        //print("Input \(sender.input), Modifier \(sender.modifierFlags)")
         var key:String {
             switch sender.modifierFlags.rawValue {
             case 0:
@@ -422,7 +422,6 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         }
         
         
-        print("Nachher \(diffY)")
     }
     
     
