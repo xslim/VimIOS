@@ -2,7 +2,7 @@
 
 *Disclaimer*: This is a side project of mine - no promises and no warranties. If you like it, feel free to let me know, and please feel free to improve on it, there is a lot to do.
 
-This project is based on the [Vim port of applidium](https://github.com/applidium/Vim), which has been inactive for a few years. Nonetheless, it is a full port of Vim, but since its inceptions, iOS has gained many features of which this port did not take advantage. I large parts of it with the goal of improving the Vim experience under iOS 9, in particular on iPads with an external keyboard. 
+This project is based on the [Vim port of applidium](https://github.com/applidium/Vim), which has been inactive for a few years. Nonetheless, it is a full working port of Vim. However, in the meantime iOS has gained many features of which this port did not take advantage. I rewrote large parts of it with the goal of improving the Vim experience under iOS 9, in particular on iPads with an external keyboard. 
 
 The new key features are:
 
@@ -57,4 +57,4 @@ In the `.vim` folder (create it, if it doesn't exist), you can add plugins and t
 You can create and customize a `.vimrc` file as usual. Some graphical features will probably not work. 
 
 ## Todo:
-It would be very nice to implement the new iOS document picker feature, which would allow Vim to open files directly from the sandbox of a (compatible) app, such as several cloud storage providers. Unfortunately, by someone with an Apple Developer subscription, as access to CloudKit is necessary. Also note that this would require the implementation of an at least rudimentary document management system, as the document picker extension works with the UIDocument class.
+It would be very nice to implement the new iOS document picker feature, which would allow Vim to open files directly from the sandbox of a (compatible) app, such as several cloud storage providers. Unfortunately, this has to be implemented by someone with an Apple Developer subscription, as access to CloudKit is necessary. Also note that this would require the implementation of an at least rudimentary document management system, as the document picker extension works with the UIDocument class.
