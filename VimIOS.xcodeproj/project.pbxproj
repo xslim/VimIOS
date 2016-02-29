@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4636C3441C83C6BC005E15A7 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 4636C3431C83C6BC005E15A7 /* readme.md */; };
 		464ADAD11BE1BC0700CD4D57 /* CString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464ADAD01BE1BC0700CD4D57 /* CString.swift */; };
 		465D8D451BEA8FC0002E557C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF01BE0634800DF78C8 /* Assets.xcassets */; };
 		465D8D471BEA93FE002E557C /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 465D8D461BEA93FE002E557C /* Icon-60@3x.png */; };
@@ -108,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4636C3431C83C6BC005E15A7 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		464ADAD01BE1BC0700CD4D57 /* CString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CString.swift; sourceTree = "<group>"; };
 		465D8D461BEA93FE002E557C /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		468501D21BF6793700BFB8FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -2823,6 +2825,7 @@
 		46BEBEDD1BE0634800DF78C8 = {
 			isa = PBXGroup;
 			children = (
+				4636C3431C83C6BC005E15A7 /* readme.md */,
 				468501D21BF6793700BFB8FF /* QuartzCore.framework */,
 				465D8D461BEA93FE002E557C /* Icon-60@3x.png */,
 				46BEE89D1BE06EDB00DF78C8 /* CoreGraphics.framework */,
@@ -6495,7 +6498,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Lars Kindler";
 				TargetAttributes = {
 					46BEBEE51BE0634800DF78C8 = {
@@ -6633,6 +6636,7 @@
 				46BEE5E71BE0642600DF78C8 /* eval.c in Sources */,
 				46BEE5F21BE0642600DF78C8 /* gui.c in Sources */,
 				46BEE6541BE0642600DF78C8 /* netbeans.c in Sources */,
+				4636C3441C83C6BC005E15A7 /* readme.md in Sources */,
 				46BEE8A81BE087BD00DF78C8 /* termlib.c in Sources */,
 				46BEE6FD1BE0642600DF78C8 /* spell.c in Sources */,
 				46BEE6461BE0642600DF78C8 /* memfile.c in Sources */,
@@ -6724,6 +6728,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -6744,6 +6749,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "VimIOS/VimIOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -6771,8 +6777,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -6783,6 +6791,9 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "VimIOS/VimIOS-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "VimIOS/VimIOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -6798,7 +6809,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = VimIOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6807,7 +6818,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "/Users/Lars/vimIOS/VimIOS/**";
 			};
 			name = Debug;
@@ -6821,7 +6834,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = VimIOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6830,7 +6843,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "/Users/Lars/vimIOS/VimIOS/**";
 			};
 			name = Release;
