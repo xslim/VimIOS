@@ -82,12 +82,6 @@
 		46BEE8AA1BE090B000DF78C8 /* VimAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEE8A91BE090B000DF78C8 /* VimAppDelegate.swift */; };
 		46BEE8AB1BE090F400DF78C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEED1BE0634800DF78C8 /* Main.storyboard */; };
 		46BEE8AC1BE090F400DF78C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */; };
-		46BEE8EC1BE09E8300DF78C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BEE89D1BE06EDB00DF78C8 /* CoreGraphics.framework */; };
-		46BEE8ED1BE09E8300DF78C8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BEE89B1BE06ED500DF78C8 /* CoreText.framework */; };
-		46BEE8EE1BE09E8300DF78C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BEE8981BE065EE00DF78C8 /* UIKit.framework */; };
-		46BEE8F01BE09E8300DF78C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEED1BE0634800DF78C8 /* Main.storyboard */; };
-		46BEE8F11BE09E8300DF78C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEBEF21BE0634800DF78C8 /* LaunchScreen.storyboard */; };
-		46BEE8F71BE09EA900DF78C8 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 46BEDB781BE0642300DF78C8 /* buffer.c */; };
 		46D16C9F1BFFCDF1005B5D08 /* VimMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D16C9E1BFFCDF1005B5D08 /* VimMainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -2769,7 +2763,6 @@
 		46BEE8A21BE076DD00DF78C8 /* gui_ios.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui_ios.pro; sourceTree = "<group>"; };
 		46BEE8A41BE076FF00DF78C8 /* gui_ios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gui_ios.m; sourceTree = "<group>"; };
 		46BEE8A91BE090B000DF78C8 /* VimAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimAppDelegate.swift; sourceTree = "<group>"; };
-		46BEE8F51BE09E8300DF78C8 /* VimIOS copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VimIOS copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BEE8F61BE09E8400DF78C8 /* VimIOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "VimIOS copy-Info.plist"; path = "/Users/Lars/vimIOS/VimIOS/VimIOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		46D16C9E1BFFCDF1005B5D08 /* VimMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2797,16 +2790,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46BEE8EB1BE09E8300DF78C8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46BEE8EC1BE09E8300DF78C8 /* CoreGraphics.framework in Frameworks */,
-				46BEE8ED1BE09E8300DF78C8 /* CoreText.framework in Frameworks */,
-				46BEE8EE1BE09E8300DF78C8 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2848,7 +2831,6 @@
 				46BEBEE61BE0634800DF78C8 /* VimIOS.app */,
 				46BEBEFA1BE0634800DF78C8 /* VimIOSTests.xctest */,
 				46BEBF051BE0634800DF78C8 /* VimIOSUITests.xctest */,
-				46BEE8F51BE09E8300DF78C8 /* VimIOS copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -6474,23 +6456,6 @@
 			productReference = 46BEBF051BE0634800DF78C8 /* VimIOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		46BEE8AD1BE09E8300DF78C8 /* VimIOS copy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46BEE8F21BE09E8300DF78C8 /* Build configuration list for PBXNativeTarget "VimIOS copy" */;
-			buildPhases = (
-				46BEE8AE1BE09E8300DF78C8 /* Sources */,
-				46BEE8EB1BE09E8300DF78C8 /* Frameworks */,
-				46BEE8EF1BE09E8300DF78C8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "VimIOS copy";
-			productName = VimIOS;
-			productReference = 46BEE8F51BE09E8300DF78C8 /* VimIOS copy.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -6533,7 +6498,6 @@
 				46BEBEE51BE0634800DF78C8 /* VimIOS */,
 				46BEBEF91BE0634800DF78C8 /* VimIOSTests */,
 				46BEBF041BE0634800DF78C8 /* VimIOSUITests */,
-				46BEE8AD1BE09E8300DF78C8 /* VimIOS copy */,
 			);
 		};
 /* End PBXProject section */
@@ -6563,15 +6527,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46BEE8EF1BE09E8300DF78C8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46BEE8F01BE09E8300DF78C8 /* Main.storyboard in Resources */,
-				46BEE8F11BE09E8300DF78C8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6662,14 +6617,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				46BEBF0A1BE0634800DF78C8 /* VimIOSUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46BEE8AE1BE09E8300DF78C8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46BEE8F71BE09EA900DF78C8 /* buffer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6819,8 +6766,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VimIOS/VimIOS-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "VimIOS/VimIOS-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "/Users/Lars/vimIOS/VimIOS/**";
 			};
 			name = Debug;
@@ -6845,7 +6792,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "VimIOS/VimIOS-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "/Users/Lars/vimIOS/VimIOS/**";
 			};
 			name = Release;
@@ -6898,52 +6845,6 @@
 			};
 			name = Release;
 		};
-		46BEE8F31BE09E8300DF78C8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
-				INFOPLIST_FILE = "VimIOS copy-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/vim/src/xpm/x64/lib",
-					"$(PROJECT_DIR)/vim/src/xpm/x86/lib",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
-				USER_HEADER_SEARCH_PATHS = "/Users/Lars/vimIOS/VimIOS/**";
-			};
-			name = Debug;
-		};
-		46BEE8F41BE09E8300DF78C8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
-				INFOPLIST_FILE = "VimIOS copy-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/vim/src/xpm/x64/lib",
-					"$(PROJECT_DIR)/vim/src/xpm/x86/lib",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = larki.VimIOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lars/vimIOS/VimIOS/VimIOS/VimIOS-Bridging-Header.h";
-				USER_HEADER_SEARCH_PATHS = "/Users/Lars/vimIOS/VimIOS/**";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -6979,15 +6880,6 @@
 			buildConfigurations = (
 				46BEBF151BE0634800DF78C8 /* Debug */,
 				46BEBF161BE0634800DF78C8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		46BEE8F21BE09E8300DF78C8 /* Build configuration list for PBXNativeTarget "VimIOS copy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				46BEE8F31BE09E8300DF78C8 /* Debug */,
-				46BEE8F41BE09E8300DF78C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -13,7 +13,7 @@ The new key features are:
 * Upgrade to Vim 7.4
 
 ## Acknowledgements
-Obviously, I used the code of [Applidiums Vim port](https://github.com/applidium/Vim), and Vim itself. I had to make minor changes in the Vim source code a few times, so I include a modified version of the [Vim code base](https://github.com/vim/vim). Note that Vim is charity ware, see [here for the Vim license](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license).
+Obviously, I used the code of [Applidiums Vim port](https://github.com/applidium/Vim), and Vim itself. I had to make minor changes in the Vim source code a few times, so I include a modified version of the [Vim code base](https://github.com/vim/vim). Note that Vim is charity ware, see [here for the Vim license](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license). The app icon was taken from [here](http://usevim.com/2014/07/25/flat-vim-icons/).
 
 ## Setup
 Clone the repository and use XCode to compile it for your iOS 9+ device. *Caveat:* While the project compiles in the XCode 7.3 Beta, execution of the app terminates in an obscure part of the original Vim code. Strangely enough, if the app was compiled with XCode 7.2, this does not happen. I will wait for the final version of XCode 7.3, and then see if the problem persists and if I can fix it.
