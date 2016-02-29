@@ -1,6 +1,6 @@
 # VimIOS - A port of Vim to iOS 9+
 
-Disclaimer: This is a side project of mine - no promises and no warranties. If you like it, feel free to let me know, and please feel free to improve on it, there is a lot to do.
+*Disclaimer*: This is a side project of mine - no promises and no warranties. If you like it, feel free to let me know, and please feel free to improve on it, there is a lot to do.
 
 This project is based on the [Vim port of applidium](https://github.com/applidium/Vim), which has been inactive for a few years. Nonetheless, it is a full port of Vim, but since its inceptions, iOS has gained many features of which this port did not take advantage. I large parts of it with the goal of improving the Vim experience under iOS 9, in particular on iPads with an external keyboard. 
 
@@ -12,6 +12,8 @@ The new key features are:
 * The app now looks great on retina displays.
 * Upgrade to Vim 7.4
 
+## Acknowledgements
+Obviously, I used the code of [Applidiums Vim port](https://github.com/applidium/Vim), and Vim itself. I had to make minor changes in the Vim source code a few times, so I include a modified version of the [Vim code base](https://github.com/vim/vim). Note that Vim is charity ware, see [here for the Vim license](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license).
 
 ## Setup
 Clone the repository and use XCode to compile it for your iOS 9+ device. *Caveat:* While the project compiles in the XCode 7.3 Beta, execution of the app terminates in an obscure part of the original Vim code. Strangely enough, if the app was compiled with XCode 7.2, this does not happen. I will wait for the final version of XCode 7.3, and then see if the problem persists and if I can fix it.
