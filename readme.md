@@ -30,11 +30,10 @@ Inbox/
 .viminfo
 .vimrc
 ```
-
 If `.vimrc` does not exist, you can create it, if you wish. 
 
 You can write your files anywhere, except for the `Inbox/` folder, see below.
-Use `F1` to get help on how to use the file browser. You can create directories with `d' and delete directories/files with `D'. 
+Use `F1` to get help on how to use the file browser. You can create directories with `d` and delete directories/files with `D'. 
 
 ### The Inbox folder
 This is a special folder. Files imported from other applications will be saved there. **Note that you cannot save to the Inbox folder manually**. In particular, if you import a file and make changes, then you *have* to save the new file somewhere outside the Inbox folder.
