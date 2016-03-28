@@ -160,7 +160,10 @@ void vimHelper(int argc, NSString *file)
         argv[1] = filename;
         argc++;
     }
-        //NSLog(@"%s", argv[1]);
+
+
+
+       // NSLog(@"%s", argv[1]);
     
     VimMain(argc,argv);
     
