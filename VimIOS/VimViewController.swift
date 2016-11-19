@@ -21,7 +21,7 @@ let hotkeys = "1234567890!@#$%^&*()_={}\\/.,<>?:|`~[]"
 let shiftableHotkeys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
+class VimViewController: UIViewController, UIKeyInput, UITextInputTraits, UIDocumentPickerDelegate, NSFilePresenter {
     var vimView: VimView?
     var hasBeenFlushedOnce = false
     var lastKeyPress = Date()
@@ -36,6 +36,9 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     
     var documentController:UIDocumentInteractionController?
     var activityController:UIActivityViewController?
+    
+    public var presentedItemURL: URL?
+    public var presentedItemOperationQueue: OperationQueue = OperationQueue()
     
     override var keyCommands: [UIKeyCommand]? {
         return keyCommandArray
@@ -56,8 +59,8 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         vimView = VimView(frame: view.frame)
         vimView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(vimView!)
-
         
+        NSFileCoordinator.addFilePresenter(self)
         registerHotkeys()
         
         vimView?.addGestureRecognizer(UITapGestureRecognizer(target:self,action:#selector(VimViewController.click(_:))))
@@ -424,8 +427,42 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
         
     }
     
+    // MARK: - DocumentPicker
     
+    func showDocumentPicker() {
+        let pickableItems = ["public.text", "public.folder", "public.directory"]
+        
+        let docPicker = UIDocumentPickerViewController.init(documentTypes: pickableItems, in: .open)
+        docPicker.delegate = self
+        docPicker.modalPresentationStyle = .formSheet
+        self.present(docPicker, animated: true, completion: nil)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        
+        if !url.startAccessingSecurityScopedResource() {
+            return
+        }
+        
+        let fc = NSFileCoordinator()
+    
+        //fc.coordinate(readingItemAt: url, options: .withoutChanges, error: nil) { (newURL : URL!) -> Void in
+        let intent = NSFileAccessIntent.writingIntent(with: url, options: [])
+        fc.coordinate(with: [intent], queue: OperationQueue.main) {
+            (err: Error?) in
+            if (err != nil) {
+                print("Error coordinating writing file: \(err)")
+                return
+            }
+            let path = intent.url.relativePath.replacingOccurrences(of: " ", with: "\\ ")
+            
+            print("edit \(path)")
+            do_cmdline_cmd("edit \(path)")
+        }
+  
+    }
+    
+    //func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {}
 
     
 }
-

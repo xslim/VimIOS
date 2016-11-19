@@ -2,10 +2,13 @@
 
 syntax on
 set nocompatible
+set noswapfile
+set nobackup
 set number
 set guioptions-=rm
 
 set antialias
+command DP :browse open
 command Share :browse save
 command Mail :call SendAsMail()
 cmap <C-S-j> <Down>

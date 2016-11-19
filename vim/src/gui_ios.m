@@ -1138,16 +1138,19 @@ gui_mch_browse(
 {
 //    printf("%s\n",__func__);
 
-   
-    NSLog(@"title: %s", title);
-    NSString *dir = [NSString stringWithFormat:@"%s", initdir];
-    NSString *file = [NSString stringWithFormat:@"%s", dflt];
-    NSString *path = [dir stringByAppendingString:file];
-
-    NSLog(@"path: %@",path);
-    NSURL *url = [NSURL fileURLWithPath:path];
-    
-    [getViewController() showShareSheetForURL:url mode:@"Share"];
+    if (saving) {
+        NSLog(@"title: %s", title);
+        NSString *dir = [NSString stringWithFormat:@"%s", initdir];
+        NSString *file = [NSString stringWithFormat:@"%s", dflt];
+        NSString *path = [dir stringByAppendingString:file];
+        
+        NSLog(@"path: %@",path);
+        NSURL *url = [NSURL fileURLWithPath:path];
+        
+        [getViewController() showShareSheetForURL:url mode:@"Share"];
+    } else {
+        [getViewController() showDocumentPicker];
+    }
 
    // UIDocumentInteractionController *controller = [UIDocumentInteractionController interactionControllerWithURL:url];
 
