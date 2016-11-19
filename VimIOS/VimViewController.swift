@@ -158,10 +158,10 @@ class VimViewController: UIViewController, UIKeyInput, UITextInputTraits {
     
     func insertText(_ text: String) {
         var escapeString = text.char
-//        if(text=="\n") {
-//            //print("Enter!")
-//            escapeString = String(describing: UnicodeScalar(Int(keyCAR))).char
-//        }
+        if(text=="\n") {
+            //print("Enter!")
+            escapeString = UnicodeScalar(Int(keyCAR))!.description.char
+        }
         
         becomeFirstResponder()
         let length = text.lengthOfBytes(using: String.Encoding.utf8)
